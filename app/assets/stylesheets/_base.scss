@@ -1,0 +1,157 @@
+$light-gray: #aeb0b5;
+$lightest-gray: #efefef;
+$dark-blue: #1d4a88;
+$white: #ffffff;
+$light-gray: #CCCCCC;
+$red: red;
+$green: green;
+
+
+body {
+  background-color: $light-gray;
+  line-height: 10px;
+  margin: 33px;
+}
+
+h1 {
+  text-align: left;
+  padding: 10px;
+  color: $white;
+  margin: 0;
+  display: inline-block;
+  font-size: 5em;
+}
+
+div {
+  .title {
+    border: solid 1px $light-gray;
+    background-color: $dark-blue;
+    padding: 4px;
+    margin: 4px 4px 0 4px;
+    min-width: 1000px;
+    height: 150px;
+  }
+
+  .info-box {
+    float: right;
+    position: relative;
+    min-width: 300px;
+    top: 10px;
+    right: 10px;
+    background-color: $light-gray;
+  }
+}
+
+.container {
+  width: 100%;
+  height: 100px;
+}
+
+.user-info {
+  padding: 0;
+  margin: 0;
+
+  td {
+    border: 1px solid $light-gray;
+  }
+}
+
+.history  {
+  vertical-align: top;
+  margin: 0;
+  padding: 0;
+}
+
+#posts-table {
+  line-height: 110%;
+
+  thead {
+    th {
+      background-color: $dark-blue;
+      text-align: center;
+      color: $white;
+    }
+  }
+}
+
+.h-table {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 500px;
+}
+
+.log_out {
+  position: absolute;
+  top: 15px;
+  right: 40px;
+}
+
+.xfer-button {
+  float:right;
+}
+ div#popUp {
+   display: none;
+   position: absolute;
+   top: 50px;
+   right: 400px;
+   background-color: $white;
+   z-index:9999;
+   opacity: 100;
+ }
+.welcome {
+  text-align: center;
+  margin: 0px 200px 0px 200px;
+  font-size: 30px;
+  color: $white;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: $lightest-gray;
+  text-align: center;
+}
+
+.hmenu { display: inline-block; }
+
+.account-info { float: right; }
+
+.red_amount { color: $red; }
+
+.green_amount { color: $green; }
+
+.xtable {
+  border-collapse: collapse;
+
+  tr {
+    line-height: 20px;
+  }
+
+  th,
+  td {
+    border: 1px solid;
+    padding: .3vw;
+    width: 12.6vw;
+    text-align: center;
+    font-size: 2vw;
+  }
+
+  tbody {
+    overflow-y: scroll;
+    max-height: 80vh;
+  }
+}
+
+select#user_home_currency_id {
+  line-height: 25px;
+}
+
+.xtable thead,
+.table tfoot,
+.xtable tbody {
+  display: block;
+}

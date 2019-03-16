@@ -2,6 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
-  $('#user-table').dataTable()
+  $('#posts-table').dataTable()
   "sPaginationType": "bootstrap"
   "dom": '<lf<t>ip>'

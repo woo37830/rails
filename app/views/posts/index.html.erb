@@ -3,7 +3,7 @@
 
 <h1>Posts</h1>
 
-<table id="user-table">
+<table id="posts-table">
   <thead>
     <tr>
       <th>Title</th>
@@ -30,9 +30,10 @@
 <br>
 <script>
   $(function(){
-    $("#user-table").dataTable();
+    $("#posts-table").dataTable();
   });
 </script>
 
 
 <%= link_to 'New Post', new_post_path %>
+
