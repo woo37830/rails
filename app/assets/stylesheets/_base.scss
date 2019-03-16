@@ -43,7 +43,7 @@ div {
 }
 
 .container {
-  width: 100%;
+  width: 90%;
   height: 100px;
 }
 
@@ -120,10 +120,6 @@ div {
 
 .account-info { float: right; }
 
-.red_amount { color: $red; }
-
-.green_amount { color: $green; }
-
 .xtable {
   border-collapse: collapse;
 
@@ -144,10 +140,6 @@ div {
     overflow-y: scroll;
     max-height: 80vh;
   }
-}
-
-select#user_home_currency_id {
-  line-height: 25px;
 }
 
 .xtable thead,
