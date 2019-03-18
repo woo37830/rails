@@ -1,3 +1,6 @@
 <footer class="footer">
-<h3>This pages layout controlled by _base.scss</h3>
+<%= commit = `git rev-parse --short HEAD` %>
+<table id="info">
+<tr><td><%= puts commit %></td><td>layout managed by _base.scss</td></tr>
+</table>
 </footer>
