@@ -5,21 +5,22 @@ $white: #ffffff;
 $light-gray: #CCCCCC;
 $red: red;
 $green: green;
-
+$normal: #9999CC;
 
 body {
-  background-color: $light-gray;
+  background-color: $normal;
   line-height: 10px;
   margin: 33px;
 }
 
 h1 {
+  width: 100%;
   text-align: center;
   padding: 10px;
   color: $white;
   margin: 0;
   display: inline-block;
-  font-size: 5em;
+  font-size: 3em;
 }
 
 div {
@@ -74,6 +75,18 @@ div {
   }
 }
 
+#comments-table {
+  line-height: 110%;
+
+  thead {
+    th {
+      background-color: $dark-blue;
+      text-align: center;
+      color: $white;
+    }
+  }
+}
+
 .h-table {
   width: 100%;
   margin: 0;
@@ -90,6 +103,7 @@ div {
 .xfer-button {
   float:right;
 }
+
  div#popUp {
    display: none;
    position: absolute;
@@ -99,6 +113,7 @@ div {
    z-index:9999;
    opacity: 100;
  }
+ 
 .welcome {
   text-align: center;
   margin: 0px 200px 0px 200px;
