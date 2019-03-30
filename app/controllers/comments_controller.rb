@@ -10,9 +10,8 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @post_id = :id
     @comment = Comment.new
-    @comment.post_id = :post_id
+    @comment.post_id = params[:id]
   end
 
   # POST /comments
