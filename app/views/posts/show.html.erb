@@ -12,10 +12,6 @@
 </p>
 
 <hr/>
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
-
-<hr/>
 <h1>Comments</h1>
 
 <table id="comments-table">
@@ -41,7 +37,11 @@
 <br>
 <hr/>
 
-<%= link_to 'Add Comment', :controller => 'comments', :action => 'new', :id =>@post.id %>
+<%= link_to 'Add Comment', :controller => 'comments', :action => 'new', :id =>@post.id %> |
+<%= link_to 'Edit Post', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
+
+<hr/>
 
 <script>
   $(function(){

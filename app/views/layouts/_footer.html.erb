@@ -1,6 +1,6 @@
 <footer class="footer">
-<%= commit = `git rev-parse --short HEAD` %>
+Commit: <%= commit = `git rev-parse --short HEAD` %>
 <table id="info">
-<tr><td><%= puts commit %></td><td>layout managed by _base.scss</td></tr>
+<tr><td><%= puts commit %></td><td>layout managed by _base.scss</td><!--<td>Debug: <%=debug(params) %></td> --></tr>
 </table>
 </footer>
