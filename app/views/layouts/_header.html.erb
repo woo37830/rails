@@ -1,4 +1,4 @@
-   <script>
+<script>
    //highlight colors for background and foreground
 var highlightColor = "#ffd700";
 var highlightFColor = "#ffffff";
@@ -48,14 +48,14 @@ function showTaskList()
 function showBugList()
 {
     window.open(
-            'http://jwooten37830.com/mantisbt-1.2.10',
+            '<%= ENV["ISSUES_SERVER"] %>',
             '_blank');
 }
 
 function showNoteList()
 {
     window.open(
-            'http://jwooten37830.com/blog',
+            '<%= ENV["NOTES_SERVER"] %>',
             '_blank');
 
 }
