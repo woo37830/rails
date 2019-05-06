@@ -7,6 +7,8 @@ gem 'ajax-datatables-rails', github: 'ajahongir/ajax-datatables-rails', branch: 
 gem 'rails_script'
 gem 'js-routes'
 
+gem 'devise'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 # Use sqlite3 as the database for Active Record
