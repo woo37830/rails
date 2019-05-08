@@ -33,10 +33,7 @@ function disabledMenuClick(menuObj)
 
 function logout()
 {
-    //document.location.href = '/sc_demo/login.jsp?event=logout';
-    //document.location.href = 'login.jsp';
-    alert("Logout!");
-
+    <%= link_to destroy_user_session_path, method: :delete %>   
 }
 
 function showTaskList()
@@ -73,7 +70,14 @@ function supportCenter(menuObj)
                             <table border="0" cellPadding="2" cellSpacing="4">
                                 <tr>
                                     <td>&nbsp;User:&nbsp;&nbsp;</td>
-                                    <td id="userName" ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" nowrap title="Edit User Prefs">John</td>
+                                    	<td>
+                                    	    <% if current_user %>
+                                    		<%= link_to edit_user_registration_path do %>
+                                    			<%= current_user.name %>
+                                    		<% end %>
+                                    		<% end %>
+                                    	</td>
+                                    <td id="userName" ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" nowrap title="Edit User Prefs"></td>
                                     <td id="home-td"  ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" nowrap title="Home"><img alt="Home" src="/assets/Home.gif" width="27" height="25">
                                     </td>
                                     <td id="bugs" ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" ONCLICK="showBugList();" nowrap title="Problem Reports"><img alt="Bugs" src="/assets/bug.gif" width="27" height="25">
@@ -87,7 +91,9 @@ function supportCenter(menuObj)
                                     </td>
                                     <td ONCLICK="disabledMenuClick(this);" ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" nowrap title="Products"><img alt="Products" src="/assets/products.gif"  width="27" height="25">
                                     </td>
-                                    <td ONCLICK="logout();" ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" nowrap title="Log Out"><img alt="Log Out" src="/assets/logout.jpg"  width="27" height="25">
+                                    <td ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" nowrap title="Log Out"><%= link_to destroy_user_session_path, method: :delete do %>
+                                    	<%= image_tag("/assets/logout.jpg" ) %>
+                                    	<% end %>
                                     </td>
                                 </tr>
                             </table>
