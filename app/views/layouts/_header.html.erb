@@ -101,13 +101,6 @@ function supportCenter(menuObj)
                                     		<%= image_tag("/assets/Notes.gif", :size => "27x25") %>
                                     	<% end %>
                              </td>
-                                    <td ONCLICK="supportCenter(this);" ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" nowrap title="Support"><img alt="Support" src="/assets/support.gif"  width="27" height="25">
-                                    </td>
-
-                                    <td ONCLICK="disabledMenuClick(this);" ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" nowrap title="Site Map"><img alt="Site Map" src="/assets/sitemap.gif"  width="27" height="25">
-                                    </td>
-                                    <td ONCLICK="disabledMenuClick(this);" ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" nowrap title="Products"><img alt="Products" src="/assets/products.gif"  width="27" height="25">
-                                    </td>
                                     <td ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" nowrap title="Log Out"><%= link_to destroy_user_session_path, method: :delete do %>
                                     	<%= image_tag("/assets/logout.jpg", :size => "27x25" ) %>
                                     	<% end %>

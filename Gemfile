@@ -6,6 +6,7 @@ ruby '2.3.1'
 gem 'ajax-datatables-rails', github: 'ajahongir/ajax-datatables-rails', branch: 'v-0-4-0'
 gem 'rails_script'
 gem 'js-routes'
+gem 'table_print'
 
 gem 'devise'
 

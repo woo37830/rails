@@ -10,6 +10,11 @@
   <%= @post.body %>
 </p>
 
+<p>
+  <strong>Posted By:</strong>
+  <%= @post.user.name %>
+</p>
+
 <hr/>
 <h1>Comments</h1>
 
@@ -17,7 +22,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Email</th>
       <th>Body</th>
     </tr>
   </thead>
@@ -25,8 +29,7 @@
   <tbody>
     <% @comments.each do |comment| %>
       <tr >
-        <td><%= comment.name %></td>
-        <td><%= comment.email %></td>
+        <td><%= comment.post.user.name %></td>
         <td><%= comment.body %></td>
       </tr>
     <% end %>
