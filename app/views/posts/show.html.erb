@@ -15,22 +15,29 @@
   <%= @post.user.name %>
 </p>
 
+<p>
+  <strong>Modified:</strong>
+  <%= @post.updated_at %>
+</p>
+
 <hr/>
 <h1>Comments</h1>
 
 <table id="comments-table">
   <thead>
     <tr>
-      <th>Name</th>
       <th>Body</th>
+      <th>By</th>
+      <th>On</th>
     </tr>
   </thead>
 
   <tbody>
     <% @comments.each do |comment| %>
       <tr >
-        <td><%= comment.post.user.name %></td>
         <td><%= comment.body %></td>
+        <td><%= comment.post.user.name %></td>
+        <td><%= comment.updated_at %></td>
       </tr>
     <% end %>
   </tbody>
