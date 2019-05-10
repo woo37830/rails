@@ -1,3 +1,8 @@
+<script>
+  $(function(){
+    $(".alert" ).fadeOut(10000);  
+  });
+</script>
 <footer class="footer">
 Commit: <%= commit = `git rev-parse --short HEAD` %>
 Branch: <%= thebranch = `git rev-parse --abbrev-ref HEAD` %>
