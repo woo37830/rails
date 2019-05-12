@@ -1,5 +1,14 @@
 <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
 
+<% if current_user %>
+  <% if current_user.super_admin? %>
+    <h3>Welcome, Super Admin: <%= current_user.name %></h3>
+  <% elsif current_user.admin? %>
+    <h3>Welcome, Admin: <%= current_user.name %></h3>
+  <% else %>
+    <h3>Welcome: <%= current_user.name %></h3>
+  <% end %>
+<% end %>
 <p>
   <strong>Title:</strong>
   <%= @post.title %>
