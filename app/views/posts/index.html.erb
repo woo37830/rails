@@ -30,5 +30,5 @@
 </script>
 
 <% if current_user %>
-	<%= link_to 'New Post', new_post_path %>
+	<%= link_to 'New Post', new_post_path %> <% if current_user.super_admin? %> | <%= link_to 'Admin', users_path %> <% end %>
 <% end %>
