@@ -2,32 +2,19 @@
 
 <h1>Posts</h1>
 
-<table id="posts-table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Action</th>
-    </tr>
-  </thead>
+<ul style="list-style-type:none;">
 
-  <tbody>
     <% @posts.each do |post| %>
-      <tr >
-        <td><%= post.title %></td>
-        <td><%= post.body %></td>
-        <td><%= link_to "Show (#{post.comments.count})", post %></td>
-      </tr>
+     <li> <h3><%= post.title %></h3>
+        <%= post.body %>
+        <br />
+        By: <%= post.user.name %> On: <%= post.updated_at.to_formatted_s(:long) %> <%= link_to "Comments (#{post.comments.count})", post %>
+     <br />
     <% end %>
-  </tbody>
-</table>
+</ul>
 
 <br>
-<script>
-  $(function(){
-    $("#posts-table").dataTable();
-  });
-</script>
+
 
 <% if current_user %>
 	<%= link_to 'New Post', new_post_path %> <% if current_user.super_admin? %> | <%= link_to 'Admin', users_path %> <% end %>

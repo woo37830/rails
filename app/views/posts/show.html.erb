@@ -26,7 +26,7 @@
 
 <p>
   <strong>Modified:</strong>
-  <%= @post.updated_at %>
+  <%= @post.updated_at.to_formatted_s(:long) %>
 </p>
 
 <hr/>
@@ -45,8 +45,8 @@
     <% @comments.each do |comment| %>
       <tr >
         <td><%= comment.body %></td>
-        <td><%= comment.post.user.name %></td>
-        <td><%= comment.updated_at %></td>
+        <td><%= comment.user.name %></td>
+        <td><%= comment.updated_at.to_formatted_s(:long) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -57,7 +57,7 @@
 
 <% if current_user %>
 	<%= link_to 'Add Comment', :controller => 'comments', :action => 'new', :id =>@post.id %> |
-	<%= link_to 'Edit Post', edit_post_path(@post) %> |
+	<% if current_user == @post.user %><%= link_to 'Edit Post', edit_post_path(@post) %> | <% end %>
 <% end %>
 <%= link_to 'Back', posts_path %>
 
