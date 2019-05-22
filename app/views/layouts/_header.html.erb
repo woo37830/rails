@@ -70,6 +70,9 @@ function supportCenter(menuObj)
                         <td align="right" valign="middle" >
                             <table border="0" cellPadding="2" cellSpacing="4">
                                 <tr>
+                                <td>
+                                    <%= link_to 'About', '/about' %>
+								</td>
                                    <% if user_signed_in? %>
                                       <td>&nbsp;User:&nbsp;&nbsp;</td>
                                     	<td>
@@ -80,10 +83,10 @@ function supportCenter(menuObj)
                                     		<% end %>
                                     	</td>
                                      <% else %>
-     									<td>
+     									<td >
      										<%= link_to "Register", new_user_registration_path, :class => 'navbar-link' %>
      									</td>
-     									<td>
+     									<td >
      										<%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
      									</td>
    									<% end %>
