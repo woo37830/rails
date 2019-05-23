@@ -4,7 +4,8 @@ class User < ApplicationRecord
   has_many :post
   has_many :comment
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable,
+         :lockable, :timeoutable
   enum access_level: [:standard, :admin, :super_admin]
 
 end
