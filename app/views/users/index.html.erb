@@ -15,7 +15,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr >
-        <td><%= user.name %></td>
+        <td><%= link_to user.name,users_editprofile_path(:user_id => user.id,:resource_name => "User") %></td>
         <td><%= user.email %></td>
         <td><%= user.access_level %></td>
       </tr>
