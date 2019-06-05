@@ -5,7 +5,7 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.name_field :name, autofocus: true, autocomplete: "name" %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
   </div>
 
   <div class="field">
@@ -13,6 +13,11 @@
     <%= f.email_field :email, autocomplete: "email" %>
   </div>
 
+  <div class="field">
+    <%= f.label :access_level %><br />
+    <%= f.select :access_level, ['standard', 'admin', 'super_admin']%>
+  </div>
+  
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
