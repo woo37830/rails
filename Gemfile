@@ -13,7 +13,12 @@ gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.3.6'
+group :development, :test do
+  gem 'sqlite3', '~> 1.3.6'
+end
+group :production do
+  gem 'pg', '~> 0.18'
+end
 # Use json serializers
 gem 'active_model_serializers', '~> 0.10.0'
 # Use Puma as the app server
