@@ -1,4 +1,4 @@
-   <script>
+<script>
    //highlight colors for background and foreground
 var highlightColor = "#ffd700";
 var highlightFColor = "#ffffff";
@@ -33,10 +33,7 @@ function disabledMenuClick(menuObj)
 
 function logout()
 {
-    //document.location.href = '/sc_demo/login.jsp?event=logout';
-    //document.location.href = 'login.jsp';
-    alert("Logout!");
-
+    <%= link_to destroy_user_session_path, method: :delete %>   
 }
 
 function showTaskList()
@@ -48,14 +45,14 @@ function showTaskList()
 function showBugList()
 {
     window.open(
-            'http://jwooten37830.com/mantisbt-1.2.10',
+            '<%= ENV["ISSUES_SERVER"] %>',
             '_blank');
 }
 
 function showNoteList()
 {
     window.open(
-            'http://jwooten37830.com/blog',
+            '<%= ENV["NOTES_SERVER"] %>',
             '_blank');
 
 }
@@ -65,6 +62,7 @@ function supportCenter(menuObj)
 {
     document.location.href = 'http://www.blivenow.com/live/352187325499';
 }
+</script>
 
 </script>
    <table id="header-nav" cellPadding="0" cellSpacing="0" width="100%"  align="left">
@@ -72,22 +70,44 @@ function supportCenter(menuObj)
                         <td align="right" valign="middle" >
                             <table border="0" cellPadding="2" cellSpacing="4">
                                 <tr>
-                                    <td>&nbsp;User:&nbsp;&nbsp;</td>
-                                    <td id="userName" ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" nowrap title="Edit User Prefs">John</td>
-                                    <td id="home-td"  ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" nowrap title="Home"><img alt="Home" src="/assets/Home.gif" width="27" height="25">
+                                <td>
+                                    <%= link_to 'About', '/about' %>
+								</td>
+                                   <% if user_signed_in? %>
+                                      <td>&nbsp;User:&nbsp;&nbsp;</td>
+                                    	<td>
+                                    	    <% if current_user %>
+                                    		<%= link_to edit_user_registration_path do %>
+                                    			<%= current_user.name %>
+                                    		<% end %>
+                                    		<% end %>
+                                    	</td>
+                                     <% else %>
+     									<td >
+     										<%= link_to "Register", new_user_registration_path, :class => 'navbar-link' %>
+     									</td>
+     									<td >
+     										<%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
+     									</td>
+   									<% end %>
+                                    <td id="home-td"  ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" nowrap title="Home">
+                                    	<%= link_to root_path do %>
+                                    		<%= image_tag("/assets/Home.gif", :size => "27x25" ) %>
+                                    	<% end %>
                                     </td>
-                                    <td id="bugs" ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" ONCLICK="showBugList();" nowrap title="Problem Reports"><img alt="Bugs" src="/assets/bug.gif" width="27" height="25">
+                                    <td id="bugs" ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);"  nowrap title="Problem Reports">
+                                    	<%= link_to ENV["ISSUES_SERVER"],  :target => "_blank" do %>
+                                    		<%= image_tag("/assets/bug.gif", :size => "27x25") %>
+                                    	<% end %>
                                     </td>
-                                    <td id="notes" ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" ONCLICK="showNoteList();" nowrap title="Notes"><img alt="Notes" src="/assets/Notes.gif" width="27" height="25">
-                                    </td>
-                                    <td ONCLICK="supportCenter(this);" ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" nowrap title="Support"><img alt="Support" src="/assets/support.gif"  width="27" height="25">
-                                    </td>
-
-                                    <td ONCLICK="disabledMenuClick(this);" ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" nowrap title="Site Map"><img alt="Site Map" src="/assets/sitemap.gif"  width="27" height="25">
-                                    </td>
-                                    <td ONCLICK="disabledMenuClick(this);" ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" nowrap title="Products"><img alt="Products" src="/assets/products.gif"  width="27" height="25">
-                                    </td>
-                                    <td ONCLICK="logout();" ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" nowrap title="Log Out"><img alt="Log Out" src="/assets/logout.jpg"  width="27" height="25">
+                                    <td id="notes" ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" nowrap title="Notes">
+                                          	<%= link_to ENV["NOTES_SERVER"],  :target => "_blank" do %>
+                                    		<%= image_tag("/assets/Notes.gif", :size => "27x25") %>
+                                    	<% end %>
+                             </td>
+                                    <td ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" nowrap title="Log Out"><%= link_to destroy_user_session_path, method: :delete do %>
+                                    	<%= image_tag("/assets/logout.jpg", :size => "27x25" ) %>
+                                    	<% end %>
                                     </td>
                                 </tr>
                             </table>

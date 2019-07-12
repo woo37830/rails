@@ -1,6 +1,14 @@
-<p id="notice"><%= notice %></p>
 <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
 
+<% if current_user %>
+  <% if current_user.super_admin? %>
+    <h3>Welcome, Super Admin: <%= current_user.name %></h3>
+  <% elsif current_user.admin? %>
+    <h3>Welcome, Admin: <%= current_user.name %></h3>
+  <% else %>
+    <h3>Welcome: <%= current_user.name %></h3>
+  <% end %>
+<% end %>
 <p>
   <strong>Title:</strong>
   <%= @post.title %>
@@ -11,24 +19,34 @@
   <%= @post.body %>
 </p>
 
+<p>
+  <strong>Posted By:</strong>
+  <%= @post.user.name %>
+</p>
+
+<p>
+  <strong>Modified:</strong>
+  <%= @post.updated_at.to_formatted_s(:long) %>
+</p>
+
 <hr/>
 <h1>Comments</h1>
 
 <table id="comments-table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Email</th>
       <th>Body</th>
+      <th>By</th>
+      <th>On</th>
     </tr>
   </thead>
 
   <tbody>
     <% @comments.each do |comment| %>
       <tr >
-        <td><%= comment.name %></td>
-        <td><%= comment.email %></td>
         <td><%= comment.body %></td>
+        <td><%= comment.user.name %></td>
+        <td><%= comment.updated_at.to_formatted_s(:long) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -37,8 +55,10 @@
 <br>
 <hr/>
 
-<%= link_to 'Add Comment', :controller => 'comments', :action => 'new', :id =>@post.id %> |
-<%= link_to 'Edit Post', edit_post_path(@post) %> |
+<% if current_user %>
+	<%= link_to 'Add Comment', :controller => 'comments', :action => 'new', :id =>@post.id %> |
+	<% if current_user == @post.user %><%= link_to 'Edit Post', edit_post_path(@post) %> | <% end %>
+<% end %>
 <%= link_to 'Back', posts_path %>
 
 <hr/>
