@@ -8,6 +8,11 @@
     <tr>
       <th>Name</th>
       <th>Email</th>
+      <th>Created</th>
+      <th>Confirmed</th>
+      <th>Locked</th>
+      <th>Failed Attempts</th>
+      <th>Unlock Token</th>
       <th>Role</th>
     </tr>
   </thead>
@@ -17,6 +22,11 @@
       <tr >
         <td><%= link_to user.name,users_editprofile_path(:user_id => user.id,:resource_name => "User") %></td>
         <td><%= user.email %></td>
+        <td><%= user.created_at %></td>
+        <td><%= user.confirmed_at %></td>
+        <td><%= user.locked_at %></td>
+        <td><%= user.failed_attempts %></td>
+        <td><%= user.unlock_token %></td>
         <td><%= user.access_level %></td>
       </tr>
     <% end %>
@@ -27,7 +37,7 @@
   <h3>This page only viewable by logged in Super Admin</h3>
 <% end %>
 <br />
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Back', posts_path %> | <%= link_to 'Add User', posts_path %>
 
 <br />
 <script>
@@ -35,4 +45,3 @@
     $("#posts-table").dataTable();
   });
 </script>
-
