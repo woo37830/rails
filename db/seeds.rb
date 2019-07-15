@@ -5,4 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = User.create([{ :name => 'John', :email => 'jwooten37830@mac.com', :password => 'Fester1.', :password_confirmation => 'Fester1.', :access_level =>'super_admin' }])
+user = User.create([{ :name => 'John', :email => 'jwooten37830@mac.com', :password => 'Fester1.', :password_confirmation => 'Fester1.', :access_level =>'super_admin', :confirmed_at => Time.now.utc }])
+#
+p = Post.new
+p.title = 'Sign In'
+p.body = 'Use mac address and Full stopped sprite.'
+u = User.find(1)
+p.user_id = u.id
+p.save
