@@ -42,7 +42,15 @@ div {
     right: 10px;
     background-color: $light-gray;
   }
+
 }
+
+ #post-body-text {
+    word-wrap:break-word;
+    font-size: 12px;
+    #line-height: 21px;
+    display:inline;
+  }
 
 .container {
   width: 90%;
