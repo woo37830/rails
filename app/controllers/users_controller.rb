@@ -8,5 +8,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:user_id])
     render "edit"
   end
+
+  def posts
+    @user = User.find(params[:id])
+    @posts = @user.posts
+  end
   
 end

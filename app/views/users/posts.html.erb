@@ -1,0 +1,18 @@
+<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+
+<h1>Posts by <%= current_user.name %></h1>
+<table class="posts" style="table-layout: fixed; width: 80%">
+<% @posts.each do |post| %>
+<tr>
+    <td>
+        <table>
+            <tr><td class="post-title"><%= post.title %></td></tr>
+            <tr><td class="post-body" width="100%" style="word-wrap: break-word" ><%=  post.body %></td></tr>
+						<tr><td class="post-about"><%= post.updated_at.to_formatted_s(:long) %> By: <%= link_to post.user.name, user_posts_path(post.user)  %> with: <%= link_to "#{post.comments.count}",post %> comments </td></tr>
+        </table>
+    </td>
+</tr>
+<br>
+<% end %>
+</table>
+<%= link_to 'Back', posts_path %>
