@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 user = User.create([{ :name => 'John', :email => 'jwooten37830@mac.com', :password => 'Fester1.', :password_confirmation => 'Fester1.', :access_level =>'super_admin', :confirmed_at => Time.now.utc }])
+user = User.create([{ :name => 'Ralph', :email => 'wooten.666@gmail.com', :password => 'random1', :password_confirmation => 'random1', :access_level =>'standard', :confirmed_at => Time.now.utc }])
 #
 p = Post.new
 p.title = 'Sign In'

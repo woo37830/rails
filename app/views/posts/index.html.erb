@@ -9,17 +9,4 @@
 	<br /><br />
 <% end %>
 <br />
-<table class="posts">
-<% @posts.each do |post| %>
-<tr>
-    <td>
-        <table>
-            <tr><td class="post-title"><%= post.title %></td></tr>
-            <tr><td class="post-body"><%=  post.body %> </td></tr>
-						<tr><td class="post-about"><%= post.updated_at.to_formatted_s(:long) %> By: <%= post.user.name %> with: <%= link_to "#{post.comments.count}",post %> comments </td></tr>
-        </table>
-    </td>
-</tr>
-<br>
-<% end %>
-</table>
+<%= render "list" %>
