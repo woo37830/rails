@@ -22,4 +22,9 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+#  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  databse: blog_production
+  username: blog
+  password: <%= ENV['random1'] %>
