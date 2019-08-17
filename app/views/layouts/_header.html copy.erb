@@ -1,0 +1,116 @@
+<script>
+   //highlight colors for background and foreground
+var highlightColor = "#ffd700";
+var highlightFColor = "#ffffff";
+
+//normal colors for background and foreground
+var normalColor = "#9999CC";
+var normalFColor = "#000000";
+
+//comma delimited list of chosen item values
+var str = "";
+
+//Highlight a menu tab
+function mouseOver_Color(myObj)
+{
+    myObj.style.backgroundColor = highlightColor;
+    myObj.style.color = highlightFColor;
+    myObj.style.cursor = "hand";
+}
+
+//Show the normal menu tab
+function mouseOut_Color(myObj)
+{
+    myObj.style.backgroundColor = normalColor;
+    myObj.style.color = normalFColor;
+    myObj.style.cursor = "default";
+}
+
+function disabledMenuClick(menuObj)
+{
+    alert('This function is not available.');
+}
+
+function logout()
+{
+    <%= link_to destroy_user_session_path, method: :delete %>   
+}
+
+function showTaskList()
+{
+    document.location.href = 'home.jsp';
+}
+
+
+function showBugList()
+{
+    window.open(
+            '<%= ENV["ISSUES_SERVER"] %>',
+            '_blank');
+}
+
+function showNoteList()
+{
+    window.open(
+            '<%= ENV["NOTES_SERVER"] %>',
+            '_blank');
+
+}
+
+
+function supportCenter(menuObj)
+{
+    document.location.href = 'http://www.blivenow.com/live/352187325499';
+}
+</script>
+
+</script>
+   <table id="header-nav" cellPadding="0" cellSpacing="0" width="100%"  align="left">
+                    <tr valign="top" >
+                        <td align="right" valign="middle" >
+                            <table border="0" cellPadding="2" cellSpacing="4">
+                                <tr>
+                                <td>
+                                    <%= link_to 'About', '/about' %>
+								</td>
+                                   <% if user_signed_in? %>
+                                      <td>&nbsp;User:&nbsp;&nbsp;</td>
+                                    	<td>
+                                    	    <% if current_user %>
+                                    		<%= link_to edit_user_registration_path do %>
+                                    			<%= current_user.name %>
+                                    		<% end %>
+                                    		<% end %>
+                                    	</td>
+                                     <% else %>
+     									<td >
+     										<%= link_to "Register", new_user_registration_path, :class => 'navbar-link' %>
+     									</td>
+     									<td >
+     										<%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
+     									</td>
+   									<% end %>
+                                    <td id="home-td"  ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" nowrap title="Home">
+                                    	<%= link_to root_path do %>
+                                    		<%= image_tag("/assets/Home.gif", :size => "27x25" ) %>
+                                    	<% end %>
+                                    </td>
+                                    <td id="bugs" ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);"  nowrap title="Problem Reports">
+                                    	<%= link_to ENV["ISSUES_SERVER"],  :target => "_blank" do %>
+                                    		<%= image_tag("/assets/bug.gif", :size => "27x25") %>
+                                    	<% end %>
+                                    </td>
+                                    <td id="notes" ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" nowrap title="Notes">
+                                          	<%= link_to ENV["NOTES_SERVER"],  :target => "_blank" do %>
+                                    		<%= image_tag("/assets/Notes.gif", :size => "27x25") %>
+                                    	<% end %>
+                             </td>
+                                    <td ONMOUSEOVER="mouseOver_Color(this);" ONMOUSEOUT="mouseOut_Color(this);" nowrap title="Log Out"><%= link_to destroy_user_session_path, method: :delete do %>
+                                    	<%= image_tag("/assets/logout.jpg", :size => "27x25" ) %>
+                                    	<% end %>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>

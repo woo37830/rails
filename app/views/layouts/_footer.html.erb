@@ -1,12 +1,55 @@
 <script>
   $(function(){
-    $(".alert" ).fadeOut(10000);  
+    $(".alert" ).fadeOut(10000);
   });
-</script>
-<footer class="footer">
+</script><div id="nav-below" class="navigation">
+  <div class="nav-previous"><a href="http://jwooten37830.com/blog/?paged=2" ><span class="meta-nav">&larr;</span> Older posts</a></div>
+  <div class="nav-next"></div>
+</div><!-- #nav-below -->
+</div><!-- #content -->
+</div><!-- #container -->
+
+
+<div id="primary" class="widget-area" role="complementary">
+<ul class="xoxo">
+
+<li id="search-2" class="widget-container widget_search"><form role="search" method="get" id="searchform" class="searchform" action="http://jwooten37830.com/blog/">
+<div>
+  <label class="screen-reader-text" for="s">Search for:</label>
+  <input type="text" value="" name="s" id="s" />
+  <input type="submit" id="searchsubmit" value="Search" />
+</div>
+</form></li>
+
+  <li id="recent-posts-2" class="widget-container widget_recent_entries">		<h3 class="widget-title">Recent Posts</h3>
+    <ul>
+      <% if @posts %>
+      <% @posts.each do |post| %>
+        <li><%= link_to post.title, post %></li>
+      <% end %>
+      <% end %>
+    </ul>
+  </li>
+  <li id="recent-comments-2" class="widget-container widget_recent_comments">		<h3 class="widget-title">Recent Comments</h3>
+    <ul>
+    </ul>
+  </li>
+
+<li id="meta-2" class="widget-container widget_meta"><h3 class="widget-title">Meta</h3>			<ul>
+<li><%= link_to "Register", new_user_registration_path, :class => 'navbar-link' %></li>
+<li><%= link_to "Login", new_user_session_path, :class => 'navbar-link' %></li>
+<% if current_user %>
+  <li><%= link_to 'New Post', new_post_path %></li>
+<% end %>
+</ul>
+</div><!-- #primary .widget-area -->
+
+</div><!-- #main -->
+
+	<div id="footer" role="contentinfo">
 Commit: <%= commit = `git rev-parse --short HEAD` %>
 Branch: <%= thebranch = `git rev-parse --abbrev-ref HEAD` %>
 <table id="info">
 <tr><td><%= puts commit %><%= puts thebranch %></td><td>layout managed by _base.scss</td><!--<td>Debug: <%=debug(params) %></td> --></tr>
 </table>
-</footer>
+</di>
