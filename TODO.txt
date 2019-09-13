@@ -1,0 +1,3 @@
+20190912 - Figure out how to handle more than N blog entries like
+    WordPress does.  Put them into a hidden div with a link to the
+    side that hides the present and exposes another set?
