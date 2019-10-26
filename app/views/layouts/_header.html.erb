@@ -106,7 +106,6 @@ your theme's stylesheet content.
 <% if current_user && current_user.super_admin? %>
   <li id="menu-item-700" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-700"><%= link_to 'Admin', users_path %></li>
  <% end %>
- <li id="menu-item-701" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-701"><%= link_to destroy_user_session_path, method: :delete do %>Logout<% end %></li>
 
 </div>			</div><!-- #access -->
 
